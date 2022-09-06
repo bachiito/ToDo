@@ -14,7 +14,11 @@
       href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css"
       rel="stylesheet"
     />
-    <title>Todo List</title>
+    <!-- Bible Verse Style -->
+    <link rel="stylesheet" href="css/bible-verse.css" />
+    <!-- Icon -->
+    <link rel="shortcut icon" href="todo-icon.png" type="image/x-icon" />
+    <title>ToDo</title>
   </head>
   <body>
     <!-- Navbar -->
@@ -64,6 +68,15 @@
         </form>
       </div>
     </nav>
+
+    <!-- Daily Bible Verse  -->
+
+    <div id="dailyVersesWrapper"></div>
+    <script
+      async
+      defer
+      src="https://dailyverses.net/get/verse.js?language=nlt"
+    ></script>
 
     <!-- Modal -->
 

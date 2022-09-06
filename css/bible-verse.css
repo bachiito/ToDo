@@ -1,0 +1,25 @@
+#dailyVersesWrapper {
+  width: 90%;
+  text-align: center;
+  margin: 2em auto;
+}
+
+.dailyVerses.bibleText {
+  font-size: 1.15rem;
+}
+
+.dailyVerses.bibleVerse {
+  margin-top: 0.5em;
+}
+
+.dailyVerses.bibleVerse a {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e74c3c;
+}
+
+@media (max-width: 575px) {
+  #dailyVersesWrapper {
+    margin-bottom: 0;
+  }
+}
