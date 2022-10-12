@@ -1,5 +1,6 @@
 import AddTodo from "./components/add-todo.js";
-import Modal from "./components/modal.js";
+import EditModal from "./components/edit-modal.js";
+import DeleteModal from "./components/delete-modal.js";
 import Filters from "./components/filters.js";
 
 export default class View {
@@ -13,9 +14,14 @@ export default class View {
             this.addTodo(title, description);
         });
 
-        this.modal = new Modal();
-        this.modal.onClick((id, values) => {
+        this.editModal = new EditModal();
+        this.editModal.onClick((id, values) => {
             this.editTodo(id, values);
+        });
+
+        this.deleteModal = new DeleteModal();
+        this.deleteModal.onClick((id) => {
+            this.removeTodo(id);
         });
 
         this.filters = new Filters();
@@ -93,19 +99,21 @@ export default class View {
 
         const editBtn = document.createElement("button");
         editBtn.setAttribute("data-toggle", "modal");
-        editBtn.setAttribute("data-target", "#modal");
+        editBtn.setAttribute("data-target", "#edit-modal");
         editBtn.classList.add("btn", "btn-primary", "mb-1");
         editBtn.innerHTML = `<i class="fa fa-pencil"></i>`;
         editBtn.addEventListener("click", () => {
-            this.modal.setValues(todo);
+            this.editModal.setValues(todo);
         });
         tRow.children[3].appendChild(editBtn);
 
         const deleteRowBtn = document.createElement("button");
+        deleteRowBtn.setAttribute("data-toggle", "modal");
+        deleteRowBtn.setAttribute("data-target", "#delete-modal");
         deleteRowBtn.classList.add("btn", "btn-danger", "mb-1", "ml-1");
         deleteRowBtn.innerHTML = `<i class="fa fa-trash"></i>`;
         deleteRowBtn.addEventListener("click", () => {
-            this.removeTodo(todo.id);
+            this.deleteModal.setValues(todo);
         });
         tRow.children[3].appendChild(deleteRowBtn);
 

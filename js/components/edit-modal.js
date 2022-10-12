@@ -1,10 +1,10 @@
-export default class Modal {
+export default class EditModal {
     constructor() {
-        this.title = document.querySelector("#modal-title");
-        this.description = document.querySelector("#modal-description");
-        this.btn = document.querySelector("#modal-btn");
-        this.completed = document.querySelector("#modal-completed");
-        this.alert = document.querySelector("#modal-alert");
+        this.title = document.querySelector("#u-modal-title");
+        this.description = document.querySelector("#u-modal-description");
+        this.saveBtn = document.querySelector("#u-modal-btn");
+        this.completed = document.querySelector("#u-modal-completed");
+        this.alert = document.querySelector("#u-modal-alert");
         this.todo = null;
     }
 
@@ -16,7 +16,7 @@ export default class Modal {
     }
 
     onClick(callback) {
-        this.btn.addEventListener("click", () => {
+        this.saveBtn.addEventListener("click", () => {
             if (!this.title.value || !this.description.value) {
                 this.alert.classList.remove("d-none");
                 this.alert.textContent = "Title and description are required.";
@@ -31,7 +31,7 @@ export default class Modal {
                 completed: this.completed.checked,
             });
 
-            $("#modal").modal("toggle");
+            $("#edit-modal").modal("toggle");
         });
     }
 }
